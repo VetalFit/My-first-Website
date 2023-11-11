@@ -1,3 +1,12 @@
+function closeModal() {
+	const modal = document.querySelectorAll('#modal')
+	modal.forEach(item => {
+		item.style.display = 'none';
+		document.body.style.overflow = '';
+	})
+
+};
+
 const modals = () => {
 	function bindModal(triggerSelector, modalSelector, closeSelector, closeClickOverlay = true) {
 
@@ -27,8 +36,7 @@ const modals = () => {
 				item.style.display = 'none'
 			});
 
-			modal.style.display = 'none';
-			document.body.style.overflow = '';
+			closeModal();
 			//document.body.classList.remove('modal-open');
 		});
 
@@ -38,16 +46,14 @@ const modals = () => {
 					item.style.display = 'none'
 				});
 
-				modal.style.display = 'none';
-				document.body.style.overflow = '';
+				closeModal();
 				//document.body.classList.remove('modal-open');
 			}
 		});
 
 		document.addEventListener('keydown', (e) => {
 			if (e.code === "Escape" && modal.style.display === 'block') {
-				modal.style.display = 'none';
-				document.body.style.overflow = '';
+				closeModal();
 				//document.body.classList.remove('modal-open');
 			}
 		})
@@ -70,3 +76,4 @@ const modals = () => {
 
 
 export default modals;
+export { closeModal };

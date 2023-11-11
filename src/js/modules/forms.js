@@ -1,4 +1,5 @@
 import checkNumInputs from "./checkNumInputs";
+import { closeModal } from "./modals";
 
 const forms = (state) => {
 	const form = document.querySelectorAll('form'),
@@ -39,7 +40,7 @@ const forms = (state) => {
 			const formData = new FormData(item);
 			if (item.getAttribute('data-calc') === 'end') {
 				for (let key in state) {
-					formData.append(key, state[key])
+					formData.append(key, state[key]);
 				}
 			}
 
@@ -50,11 +51,11 @@ const forms = (state) => {
 				}).catch(() => {
 					statusMesssage.textContent = message.failure;
 				}).finally(() => {
-					//form.reset();
 					clearInputs();
 					setTimeout(() => {
 						statusMesssage.remove();
-					}, 5000);
+						closeModal();
+					}, 4000);
 				});
 		});
 	});

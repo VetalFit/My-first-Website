@@ -26,7 +26,7 @@ const timer = (id, dedline) => {
 	function setClock(selector, endtime) {
 		const timer = document.querySelector(selector),
 			days = timer.querySelector('#days'),
-			hours = timer.querySelector('#hAours'),
+			hours = timer.querySelector('#hours'),
 			minutes = timer.querySelector('#minutes'),
 			seconds = timer.querySelector('#seconds'),
 			timerInterval = setInterval(updateClock, 1000);

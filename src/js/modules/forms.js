@@ -42,7 +42,7 @@ const forms = (state) => {
 				for (let key in state) {
 					formData.append(key, state[key]);
 				}
-			}
+			};
 
 			postData('assets/server.php', formData)
 				.then(res => {
